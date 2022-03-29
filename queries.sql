@@ -21,4 +21,28 @@ SELECT * FROM animals WHERE neutered = true;
 
 SELECT * FROM ANIMALS WHERE name <> 'Gabumon';
 
-SELECT * FROM animals WHERE weight_kg BETWEEN 10.4 AND 17.3; 
+SELECT * FROM animals WHERE weight_kg BETWEEN 10.4 AND 17.3;
+
+-------------------TRANSACTION ---------------------
+
+BEGIN;
+UPDATE animals
+SET species = 'unspecified';
+SELECT * FROM animals; 
+
+--undo changes with ROLLBACK----------
+
+ROLLBACK;
+SELECT * FROM animals;
+
+-------------Insert Trasnaction------------------
+-----------Update the animals table by setting the "species" column to "digimon" for all animals that have a name ending in "mon".
+
+BEGIN TRANSACTION;
+
+UPDATE animals SET species = 'digimon' WHERE name like '%mon';
+UPDATE animals SET species = 'pokemon' WHERE species IS NULL;
+
+COMMIT;
+SELECT * FROM animals;
+
