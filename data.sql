@@ -37,3 +37,14 @@ WHERE name LIKE '%mon';
 UPDATE animals
 SET species_id = 1
 WHERE species_id IS NULL;
+
+------ insert some owner_id information---------
+UPDATE animals SET owner_id = 1 WHERE id = 1;
+
+UPDATE animals SET owner_id = 2 WHERE id IN (2, 3);
+
+UPDATE animals SET owner_id = 3 WHERE id IN (4, 6);
+
+UPDATE animals SET owner_id = 4 WHERE id IN (5, 7, 10);
+
+UPDATE animals SET owner_id = 5 WHERE id IN (8, 9);
