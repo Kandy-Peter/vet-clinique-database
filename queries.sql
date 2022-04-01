@@ -185,7 +185,7 @@ ORDER BY MAX(visits.date_of_visit) DESC LIMIT 1;
 SELECT animals.name, MIN(visits.date_of_visit)
 FROM animals
 JOIN visits ON visits.animal_id = animals.id
-WHERE vet_id = 2
+WHERE vet_id = 3
 GROUP BY animals.name
 ORDER BY MIN(visits.date_of_visit) DESC LIMIT 1;
 
