@@ -48,19 +48,19 @@ CREATE TABLE vets (
 -- create the intermediate table between species and vets---
 
 CREATE TABLE specializations (
-    vets_id INT,
+    vet_id INT,
     species_id INT,
-    PRIMARY KEY (vets_id, species_id),
-    CONSTRAINT fk_vets FOREIGN KEY (vets_id) REFERENCES vets(id),
+    PRIMARY KEY (vet_id, species_id),
+    CONSTRAINT fk_vets FOREIGN KEY (vet_id) REFERENCES vets(id),
     CONSTRAINT fk_species FOREIGN KEY (species_id) REFERENCES species(id)
 );
 
 --create Visits table, intermediate table between animals and vets--
 
 CREATE TABLE visits (
-    vets_id INT NOT NULL,
-    animals_id INT NOT NULL,
+    vet_id INT NOT NULL,
+    animal_id INT NOT NULL,
     date_of_visit DATE NOT NULL,
-    CONSTRAINT fk_vets FOREIGN KEY (vets_id) REFERENCES vets(id),
-    CONSTRAINT fk_animals FOREIGN KEY (animals_id) REFERENCES animals(id)
+    CONSTRAINT fk_vets FOREIGN KEY (vet_id) REFERENCES vets(id),
+    CONSTRAINT fk_animals FOREIGN KEY (animal_id) REFERENCES animals(id)
 );
