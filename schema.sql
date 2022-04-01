@@ -36,3 +36,31 @@ ALTER TABLE animals ADD FOREIGN KEY (species_id) REFERENCES species (id);
 
 ALTER TABLE animals ADD COLUMN owner_id INT;
 ALTER TABLE animals ADD FOREIGN KEY (owner_id) REFERENCES owners (id);
+
+--- Create the VETS table ----------
+
+CREATE TABLE vets (
+    id BIGSERIAL NOT NULL PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    age INT NOT NULL,
+    date_of_graduation DATE NOT NULL
+);
+-- create the intermediate table between species and vets---
+
+CREATE TABLE specializations (
+    vet_id INT,
+    species_id INT,
+    PRIMARY KEY (vet_id, species_id),
+    CONSTRAINT fk_vets FOREIGN KEY (vet_id) REFERENCES vets(id),
+    CONSTRAINT fk_species FOREIGN KEY (species_id) REFERENCES species(id)
+);
+
+--create Visits table, intermediate table between animals and vets--
+
+CREATE TABLE visits (
+    vet_id INT NOT NULL,
+    animal_id INT NOT NULL,
+    date_of_visit DATE NOT NULL,
+    CONSTRAINT fk_vets FOREIGN KEY (vet_id) REFERENCES vets(id),
+    CONSTRAINT fk_animals FOREIGN KEY (animal_id) REFERENCES animals(id)
+);
