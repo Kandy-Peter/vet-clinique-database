@@ -239,3 +239,7 @@ JOIN animals ON id = visits.animal_id
 JOIN species ON species.id = animals.species_id
 WHERE visits.vet_id = 2
 GROUP BY species.name LIMIT 1;
+
+EXPLAIN ANALYZE SELECT COUNT(*) FROM visits herew animal_id = 4;
+EXPLAIN ANALYZE SELECT * FROM VISITS WHERE vets_id = 2;
+EXPLAIN ANALYZE SELECT * FROM owners WHERE email = 'owner_18327@mail.com';
