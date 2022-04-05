@@ -1,6 +1,10 @@
 # Vet-Clinic-DB
 
 Vet clinic database is a Microverse project that help to get started with database especially  PostgreSQL.
+
+##Diagram screenshot
+![drawSQL-export-2022-04-05_09_02](https://user-images.githubusercontent.com/80612925/161698595-691efd4b-b3fa-427a-a677-988f94bcabaa.png)
+
 ## Getting Started
 
 This repository includes files with plain SQL that can be used to recreate a database:
