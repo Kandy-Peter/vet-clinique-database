@@ -15,7 +15,7 @@ CREATE TABLE medical_histories (
 );
 
 CREATE TABLE treatments (
-    id BIGSERIAL NOT NULL PRIMARY KEY,
+    id BIGSERIAL NOT NULL PRIMARY KEY,,
     type VARCHAR(100),
     name VARCHAR(70)
 );
@@ -48,3 +48,12 @@ CREATE TABLE medical_history_treatment (
     CONSTRAINT fk_medical_history_id FOREIGN KEY (medical_history_id) REFERENCES medical_histories(id),
     CONSTRAINT fk_treatment_id FOREIGN KEY (treatment_id) REFERENCES treatments(id)
 );
+
+------- Create indexes ---------
+
+CREATE INDEX ON medical_histories (patient_id);
+CREATE INDEX ON invoices (medical_history_id);
+CREATE INDEX ON invoice_items (invoice_id);
+CREATE INDEX ON invoice_items (treatment_id);
+CREATE INDEX ON medical_history_treatment (medical_history_id);
+CREATE INDEX ON medical_history_treatment (treatment_id);
